@@ -24,7 +24,7 @@ function runQuery(numArticles, queryURL) {
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).done(function(NYTData) {
+  }).done(function (NYTData) {
     // Logging the URL so we have access to it for troubleshooting
     console.log("------------------------------------");
     console.log("URL: " + queryURL);
@@ -72,15 +72,18 @@ function runQuery(numArticles, queryURL) {
         );
       // Log the remaining fields to console as well
       console.log(NYTData.response.docs[i].pub_date);
+
       console.log(NYTData.response.docs[i].section_name);
       console.log(NYTData.response.docs[i].web_url);
     }
   });
+  console.warn("find me here");
+
 }
 // METHODS
 // ==========================================================
 // on.("click") function associated with the Search Button
-$("#run-search").on("click", function(event) {
+$("#run-search").on("click", function (event) {
   // This line allows us to take advantage of the HTML "submit" property
   // This way we can hit enter on the keyboard and it registers the search
   // (in addition to clicks).
@@ -111,7 +114,7 @@ $("#run-search").on("click", function(event) {
   runQuery(numResults, searchURL);
 });
 // This button clears the top articles section
-$("#clear-all").on("click", function() {
+$("#clear-all").on("click", function () {
   articleCounter = 0;
   $("#well-section").empty();
 });
